@@ -1,5 +1,6 @@
 package com.weather.hanen.weather.Sqlite;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -44,5 +45,22 @@ public class WeatherDBHelper extends SQLiteOpenHelper {
     @Override
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         onUpgrade(db, oldVersion, newVersion);
+    }
+
+    public  long  insertWeather(Weather weather  ) {
+        SQLiteDatabase db= this.getWritableDatabase();
+        // Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(WeatherContract.WeatherEntry.COLUMN_NAME_DAY, weather.getDay());
+        values.put(WeatherContract.WeatherEntry.COLUMN_NAME_DESCRIPTION, weather.getDescription());
+        values.put(WeatherContract.WeatherEntry.COLUMN_NAME_HIGH_LOW, weather.getHighLow());
+
+// Insert the new row, returning the primary key value of the new row
+        long newRowId;
+        newRowId = db.insert(
+                WeatherContract.WeatherEntry.TABLE_NAME,
+                null,
+                values);
+        return newRowId;
     }
 }

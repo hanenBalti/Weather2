@@ -13,6 +13,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.weather.hanen.weather.Sqlite.Weather;
+import com.weather.hanen.weather.Sqlite.WeatherDBHelper;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -47,6 +50,11 @@ public class MainActivityFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
         // Déclaration  de valeurs statique pour notre listView
 
+        WeatherDBHelper dbHelper = new WeatherDBHelper(getActivity());
+        dbHelper.getWritableDatabase();
+
+
+        dbHelper.insertWeather(new Weather("Sunday","it's too cold ","10/12"));
         String[] forecastArray = {
                 "Today-Sunny-88/63",
                 "Tomorrow-Foggy-70/40",
