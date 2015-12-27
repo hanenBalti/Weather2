@@ -9,8 +9,11 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 public class WeatherDBHelper extends SQLiteOpenHelper {
 
+    public static final String DB_NAME = "weather.db";
+    public static final int DB_VERSION = 1;
+
     public WeatherDBHelper(Context context){
-        super(context, "weather.db",null,1);
+        super(context, DB_NAME,null, DB_VERSION);
     }
     
     @Override
