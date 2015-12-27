@@ -18,7 +18,7 @@ public class WeatherDBHelper extends SQLiteOpenHelper {
                     WeatherContract.WeatherEntry._ID + " INTEGER PRIMARY KEY," +
                     WeatherContract.WeatherEntry.COLUMN_NAME_DAY + TEXT_TYPE + COMMA_SEP +
                     WeatherContract.WeatherEntry.COLUMN_NAME_DESCRIPTION + TEXT_TYPE + COMMA_SEP +
-                    WeatherContract.WeatherEntry.COLUMN_NAME_HIGH_LOW + TEXT_TYPE + COMMA_SEP +
+                    WeatherContract.WeatherEntry.COLUMN_NAME_HIGH_LOW + TEXT_TYPE +
             " )" ;
 
     private static final String SQL_DELETE_ENTRIES =
